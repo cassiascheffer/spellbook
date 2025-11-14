@@ -107,11 +107,13 @@ jj edit <first-commit-id>
 # Changes are automatically added to this commit
 
 # Move to next task
-jj new
 jj edit <second-commit-id>
 # Implement next feature
+# Changes are automatically added to this commit
 
 # Continue through stack
+jj edit <third-commit-id>
+# And so on...
 ```
 
 ### Developing Features Independently

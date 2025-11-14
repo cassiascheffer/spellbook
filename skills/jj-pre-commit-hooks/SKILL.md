@@ -21,9 +21,10 @@ Use this skill when:
 ## What Are Pre-Commit Hooks?
 
 Pre-commit hooks are automated scripts that run before code is pushed to a remote repository. They check for:
-- Code formatting issues (prettier, black, rustfmt)
-- Linting errors (eslint, ruff, clippy)
-- Type errors (mypy, typescript)
+- Code formatting issues (prettier, black, rustfmt, ktlint, rubocop)
+- Linting errors (eslint, ruff, clippy, ktlint, rubocop)
+- Type errors (mypy, typescript, sorbet)
+- Build failures (gradle, maven, rake, npm build, tsc)
 - Test failures
 - Security issues
 - Commit message format
@@ -123,10 +124,11 @@ If hooks still fail:
 **FORBIDDEN:**
 - Using `--no-verify` flag
 - Using `-n` flag
+- Using `--force` flag with `jj git push`
 - Any mechanism to skip hooks
 - Commenting out hook configuration
 
-**Why:** Hooks are safety mechanisms. Bypassing them allows problematic code into the repository.
+**Why:** Hooks are safety mechanisms. Bypassing them allows problematic code into the repository. Using `--force` can skip hooks and destructively overwrite remote history.
 
 ### Accountability Checks
 
@@ -231,7 +233,7 @@ jj git push --bookmark <name>
 
 ### Type Errors
 
-**Examples:** typescript, mypy
+**Examples:** typescript, mypy, sorbet
 
 **Typical fix:**
 ```bash
@@ -241,12 +243,40 @@ jj edit <change-id>
 # Run type checker
 npm run type-check
 # or: mypy .
+# or: srb tc
 
 # Fix type errors
 # ...
 
 # Verify types pass
 npm run type-check
+
+# Finalize and push
+jj new
+jj git push --bookmark <name>
+```
+
+### Build Failures
+
+**Examples:** gradle (Kotlin/Java), maven (Java), rake (Ruby), tsc (TypeScript), npm build
+
+**Typical fix:**
+```bash
+# Edit the failing commit
+jj edit <change-id>
+
+# Run build to see failures
+./gradlew build
+# or: mvn compile
+# or: rake build
+# or: npm run build
+# or: tsc
+
+# Fix the build errors
+# ...
+
+# Verify build passes
+./gradlew build
 
 # Finalize and push
 jj new
