@@ -143,6 +143,8 @@ Skills activate automatically when relevant. For example:
 
 ### Skills Library
 
+Skills are organized by category for clarity. Each skill has a clear description of when to use it.
+
 **Development Workflows**
 - **jj-development-workflow** - Complete workflow from idea to PR integrated with Jujutsu
 
@@ -178,11 +180,26 @@ Skills activate automatically when relevant. For example:
 
 ### Commands
 
-All commands now redirect to the complete jj-development-workflow:
+Each command maps to specific skills with clear when-to-use guidance:
 
-- **brainstorm.md** - Activates the `jj-development-workflow` skill
-- **write-plan.md** - Activates the `jj-development-workflow` skill
-- **execute-plan.md** - Activates the `jj-development-workflow` skill
+- **brainstorm.md** - Brainstorm and refine rough ideas into actionable development plans
+  - Primary skill: `jj-development-workflow`
+  - Complete workflow from idea refinement → planning with empty commits → implementation → code review → PR creation
+  - Alternative: Use `writing-skills` when creating new spellbook skills
+
+- **write-plan.md** - Plan development work by creating empty commits as your meta todo list
+  - Primary skill: `jj-planning-commits`
+  - Create empty commits (no file changes) where each commit = one unit of work
+  - Commit messages contain task description + acceptance criteria
+  - The commit stack becomes your development roadmap
+
+- **execute-plan.md** - Execute development plans with test-driven development
+  - **Mandatory:** Use `test-driven-development` for ALL implementation (RED-GREEN-REFACTOR cycle)
+  - Additional skills used when needed:
+    - `systematic-debugging` - When encountering bugs (find root cause before fixing)
+    - `verification-before-completion` - Before claiming work is complete
+    - `requesting-code-review` - When ready for code review
+    - `jj-commit-workflow`, `jj-stacked-prs` - Managing Jujutsu commits and creating PRs
 
 ## How It Works
 

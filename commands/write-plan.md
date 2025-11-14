@@ -1,7 +1,5 @@
 ---
-description: Complete development workflow with Jujutsu integration
+description: Plan development work by creating empty commits as a meta todo list with Jujutsu
 ---
 
-Use the jj-development-workflow skill for the complete end-to-end process from idea refinement through planning, implementation, code review, and PR creation.
-
-This replaces the old brainstorming → writing-plans → executing-plans workflow with an integrated Jujutsu-based approach.
+Use the `jj-planning-commits` skill.

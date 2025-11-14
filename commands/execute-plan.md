@@ -1,7 +1,6 @@
 ---
-description: Complete development workflow with Jujutsu integration
+description: Execute development plans with test-driven development, debugging when needed, and code review
 ---
 
-Use the jj-development-workflow skill for the complete end-to-end process from idea refinement through planning, implementation, code review, and PR creation.
-
-This replaces the old brainstorming → writing-plans → executing-plans workflow with an integrated Jujutsu-based approach.
+Use `jj-development-workflow` to find tasks (Phase 3: Implement Tasks).
+Use the `test-driven-development` skill for implementation work.
