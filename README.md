@@ -31,7 +31,21 @@ Spellbook is a fork of Jesse Vincent's excellent [superpowers](https://github.co
 
 ## Installation
 
-### Claude Code
+### Option 1: Via Marketplace (Recommended)
+
+In Claude Code, add the spellbook marketplace:
+
+```bash
+/plugin marketplace add cassiascheffer/spellbook-marketplace
+```
+
+Then install spellbook:
+
+```bash
+/plugin install spellbook@spellbook-marketplace
+```
+
+### Option 2: Local Installation
 
 Clone this repository to your local machine:
 
@@ -58,6 +72,21 @@ You should see spellbook commands:
 /spellbook:brainstorm - Interactive design refinement
 /spellbook:write-plan - Create implementation plan
 /spellbook:execute-plan - Execute plan in batches
+```
+
+### Updating
+
+If installed via marketplace, update with:
+
+```bash
+/plugin update spellbook
+```
+
+If installed locally, pull latest changes:
+
+```bash
+cd ~/.claude/plugins/spellbook
+git pull
 ```
 
 ## Quick Start
