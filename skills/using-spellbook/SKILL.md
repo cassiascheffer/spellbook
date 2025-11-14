@@ -1,5 +1,6 @@
 ---
 name: using-spellbook
+group: meta
 description: Use when starting any conversation - establishes mandatory workflows for finding and using skills, including using Skill tool before announcing usage, following jj-development-workflow for feature work, and creating TodoWrite todos for checklists
 ---
 

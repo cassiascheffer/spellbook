@@ -143,6 +143,17 @@ Skills activate automatically when relevant. For example:
 
 ### Skills Library
 
+All skills include group metadata in their frontmatter:
+```yaml
+---
+name: skill-name
+group: group-name
+description: When to use this skill
+---
+```
+
+This metadata enables commands to reference skill groups, making it clear to Claude which skills are relevant for each workflow phase.
+
 **Development Workflows**
 - **jj-development-workflow** - Complete workflow from idea to PR integrated with Jujutsu
 
@@ -178,11 +189,22 @@ Skills activate automatically when relevant. For example:
 
 ### Commands
 
-All commands now redirect to the complete jj-development-workflow:
+Each command maps to specific skill groups, making it clear which skills Claude should use:
 
-- **brainstorm.md** - Activates the `jj-development-workflow` skill
-- **write-plan.md** - Activates the `jj-development-workflow` skill
-- **execute-plan.md** - Activates the `jj-development-workflow` skill
+- **brainstorm.md** - Brainstorm and refine ideas
+  - Skill groups: `development-workflows`, `jujutsu-version-control`, `meta`
+  - Primary: `jj-development-workflow` for complete idea-to-PR workflow
+  - Use for: Turning rough ideas into actionable plans, creating new skills
+
+- **write-plan.md** - Plan development work with Jujutsu commits
+  - Skill groups: `jujutsu-version-control`, `development-workflows`
+  - Primary: `jj-planning-commits` for task planning with empty commits
+  - Use for: Creating structured development plans, organizing work into commits
+
+- **execute-plan.md** - Implement features with TDD, debugging, and collaboration
+  - Skill groups: `testing`, `debugging`, `collaboration`, `jujutsu-version-control`
+  - Primary: `test-driven-development` (always start with tests)
+  - Use for: Implementation with quality practices, handling bugs, code review
 
 ## How It Works
 

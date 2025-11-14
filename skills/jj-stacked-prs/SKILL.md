@@ -1,5 +1,6 @@
 ---
 name: jj-stacked-prs
+group: jujutsu-version-control
 description: Use when creating GitHub pull request stacks or updating stacked PRs - turn commit stacks into reviewable PRs with proper dependencies
 ---
 

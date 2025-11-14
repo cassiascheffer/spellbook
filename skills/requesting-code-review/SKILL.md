@@ -1,5 +1,6 @@
 ---
 name: requesting-code-review
+group: collaboration
 description: Use when completing tasks, implementing major features, or before merging to verify work meets requirements - dispatches spellbook:code-reviewer subagent to review implementation against plan or requirements before proceeding
 ---
 

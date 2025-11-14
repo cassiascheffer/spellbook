@@ -1,5 +1,6 @@
 ---
 name: jj-development-workflow
+group: development-workflows
 description: Use when starting any development work with Jujutsu - complete workflow from idea refinement through planning, implementation, code review, and PR creation, all integrated with jj version control
 ---
 
