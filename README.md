@@ -1,8 +1,21 @@
-# Superpowers
+# Spellbook
 
-A comprehensive skills library of proven techniques, patterns, and workflows for AI coding assistants.
+A personal skills library forked from [superpowers](https://github.com/obra/superpowers) - includes Jujutsu workflows, TDD, debugging, and coding standards.
+
+## What is Spellbook?
+
+Spellbook is a fork of Jesse Vincent's excellent [superpowers](https://github.com/obra/superpowers) skills library, customized with personal workflows and preferences. It includes:
+
+- All the proven techniques from superpowers (TDD, systematic debugging, collaboration patterns)
+- Custom Jujutsu (jj) workflow skills for planning, commits, and PR stacks
+- Personal coding standards and conventions
+- Tailored skill activations for my development style
+
+**Attribution:** Spellbook is built on superpowers by Jesse Vincent. The core skills system, patterns, and many individual skills originate from that project. This fork is released under the same MIT license.
 
 ## What You Get
+
+### From Superpowers
 
 - **Testing Skills** - TDD, async testing, anti-patterns
 - **Debugging Skills** - Systematic debugging, root cause tracing, verification
@@ -10,29 +23,26 @@ A comprehensive skills library of proven techniques, patterns, and workflows for
 - **Development Skills** - Git worktrees, finishing branches, subagent workflows
 - **Meta Skills** - Creating, testing, and sharing skills
 
-Plus:
-- **Slash Commands** - `/superpowers:brainstorm`, `/superpowers:write-plan`, `/superpowers:execute-plan`
-- **Automatic Integration** - Skills activate automatically when relevant
-- **Consistent Workflows** - Systematic approaches to common engineering tasks
+### Spellbook Additions
 
-## Learn More
-
-Read the introduction: [Superpowers for Claude Code](https://blog.fsck.com/2025/10/09/superpowers/)
+- **Jujutsu Workflows** - Planning commits, commit stacks, stacked PRs, pre-commit hooks
+- **Personal Standards** - Coding conventions via CLAUDE.md integration
+- **Custom Slash Commands** - Tailored workflows for personal development
 
 ## Installation
 
-### Claude Code (via Plugin Marketplace)
+### Claude Code
 
-In Claude Code, register the marketplace first:
+Clone this repository to your local machine:
 
 ```bash
-/plugin marketplace add obra/superpowers-marketplace
+git clone git@github.com:cassiascheffer/spellbook.git ~/.claude/plugins/spellbook
 ```
 
-Then install the plugin from this marketplace:
+Or install via symlink if you keep it elsewhere:
 
 ```bash
-/plugin install superpowers@superpowers-marketplace
+ln -s /path/to/spellbook ~/.claude/plugins/spellbook
 ```
 
 ### Verify Installation
@@ -43,36 +53,47 @@ Check that commands appear:
 /help
 ```
 
+You should see spellbook commands:
 ```
-# Should see:
-# /superpowers:brainstorm - Interactive design refinement
-# /superpowers:write-plan - Create implementation plan
-# /superpowers:execute-plan - Execute plan in batches
+/spellbook:brainstorm - Interactive design refinement
+/spellbook:write-plan - Create implementation plan
+/spellbook:execute-plan - Execute plan in batches
 ```
-
-### Codex (Experimental)
-
-**Note:** Codex support is experimental and may require refinement based on user feedback.
-
-Tell Codex to fetch https://raw.githubusercontent.com/obra/superpowers/refs/heads/main/.codex/INSTALL.md and follow the instructions.
 
 ## Quick Start
+
+### Using Jujutsu Skills
+
+**Plan work with empty commits:**
+```
+Use spellbook:jj-planning-commits skill
+```
+
+**Manage commit stacks:**
+```
+Use spellbook:jj-commit-workflow skill
+```
+
+**Create stacked PRs:**
+```
+Use spellbook:jj-stacked-prs skill
+```
 
 ### Using Slash Commands
 
 **Brainstorm a design:**
 ```
-/superpowers:brainstorm
+/spellbook:brainstorm
 ```
 
 **Create an implementation plan:**
 ```
-/superpowers:write-plan
+/spellbook:write-plan
 ```
 
 **Execute the plan:**
 ```
-/superpowers:execute-plan
+/spellbook:execute-plan
 ```
 
 ### Automatic Skill Activation
@@ -81,10 +102,17 @@ Skills activate automatically when relevant. For example:
 - `test-driven-development` activates when implementing features
 - `systematic-debugging` activates when debugging issues
 - `verification-before-completion` activates before claiming work is done
+- `jj-pre-commit-hooks` activates when pre-commit hooks fail
 
 ## What's Inside
 
 ### Skills Library
+
+**Jujutsu Workflows** (`skills/jj-*/`)
+- **jj-planning-commits** - Plan work with empty commits
+- **jj-commit-workflow** - Manage commit stacks and reorganize work
+- **jj-stacked-prs** - Create and update PR stacks
+- **jj-pre-commit-hooks** - Handle pre-commit hook failures
 
 **Testing** (`skills/testing/`)
 - **test-driven-development** - RED-GREEN-REFACTOR cycle
@@ -112,7 +140,7 @@ Skills activate automatically when relevant. For example:
 - **writing-skills** - Create new skills following best practices
 - **sharing-skills** - Contribute skills back via branch and PR
 - **testing-skills-with-subagents** - Validate skill quality
-- **using-superpowers** - Introduction to the skills system
+- **using-spellbook** - Introduction to the skills system
 
 ### Commands
 
@@ -124,7 +152,7 @@ All commands are thin wrappers that activate the corresponding skill:
 
 ## How It Works
 
-1. **SessionStart Hook** - Loads the `using-superpowers` skill at session start
+1. **SessionStart Hook** - Loads the `using-spellbook` skill at session start
 2. **Skills System** - Uses Claude Code's first-party skills system
 3. **Automatic Discovery** - Claude finds and uses relevant skills for your task
 4. **Mandatory Workflows** - When a skill exists for your task, using it becomes required
@@ -136,32 +164,25 @@ All commands are thin wrappers that activate the corresponding skill:
 - **Complexity reduction** - Simplicity as primary goal
 - **Evidence over claims** - Verify before declaring success
 - **Domain over implementation** - Work at problem level, not solution level
+- **Jujutsu for planning** - Plan with empty commits, implement sequentially
 
-## Contributing
+## Relationship to Superpowers
 
-Skills live directly in this repository. To contribute:
+Spellbook is a fork, not a replacement for superpowers:
 
-1. Fork the repository
-2. Create a branch for your skill
-3. Follow the `writing-skills` skill for creating new skills
-4. Use the `testing-skills-with-subagents` skill to validate quality
-5. Submit a PR
-
-See `skills/meta/writing-skills/SKILL.md` for the complete guide.
-
-## Updating
-
-Skills update automatically when you update the plugin:
-
-```bash
-/plugin update superpowers
-```
+- **Upstream**: [obra/superpowers](https://github.com/obra/superpowers) - The original and actively maintained project
+- **This Fork**: Personal customizations and Jujutsu workflows
+- **Updates**: I may cherry-pick updates from superpowers, but this fork diverges independently
+- **Contributing**: Contribute generic improvements back to superpowers upstream
 
 ## License
 
 MIT License - see LICENSE file for details
 
+Original work Copyright (c) 2025 Jesse Vincent
+Modified work Copyright (c) 2025 Cassia Scheffer
+
 ## Support
 
-- **Issues**: https://github.com/obra/superpowers/issues
-- **Marketplace**: https://github.com/obra/superpowers-marketplace
+- **Issues**: https://github.com/cassiascheffer/spellbook/issues
+- **Upstream (Superpowers)**: https://github.com/obra/superpowers
