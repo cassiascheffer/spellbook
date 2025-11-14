@@ -1,6 +1,5 @@
 ---
 name: defense-in-depth
-group: debugging
 description: Use when invalid data causes failures deep in execution, requiring validation at multiple system layers - validates at every layer data passes through to make bugs structurally impossible
 ---
 

@@ -143,16 +143,7 @@ Skills activate automatically when relevant. For example:
 
 ### Skills Library
 
-All skills include group metadata in their frontmatter:
-```yaml
----
-name: skill-name
-group: group-name
-description: When to use this skill
----
-```
-
-This metadata enables commands to reference skill groups, making it clear to Claude which skills are relevant for each workflow phase.
+Skills are organized by category for clarity. Each skill has a clear description of when to use it.
 
 **Development Workflows**
 - **jj-development-workflow** - Complete workflow from idea to PR integrated with Jujutsu
@@ -189,22 +180,26 @@ This metadata enables commands to reference skill groups, making it clear to Cla
 
 ### Commands
 
-Each command maps to specific skill groups, making it clear which skills Claude should use:
+Each command maps to specific skills with clear when-to-use guidance:
 
-- **brainstorm.md** - Brainstorm and refine ideas
-  - Skill groups: `development-workflows`, `jujutsu-version-control`, `meta`
-  - Primary: `jj-development-workflow` for complete idea-to-PR workflow
-  - Use for: Turning rough ideas into actionable plans, creating new skills
+- **brainstorm.md** - Brainstorm and refine rough ideas into actionable development plans
+  - Primary skill: `jj-development-workflow`
+  - Complete workflow from idea refinement → planning with empty commits → implementation → code review → PR creation
+  - Alternative: Use `writing-skills` when creating new spellbook skills
 
-- **write-plan.md** - Plan development work with Jujutsu commits
-  - Skill groups: `jujutsu-version-control`, `development-workflows`
-  - Primary: `jj-planning-commits` for task planning with empty commits
-  - Use for: Creating structured development plans, organizing work into commits
+- **write-plan.md** - Plan development work by creating empty commits as your meta todo list
+  - Primary skill: `jj-planning-commits`
+  - Create empty commits (no file changes) where each commit = one unit of work
+  - Commit messages contain task description + acceptance criteria
+  - The commit stack becomes your development roadmap
 
-- **execute-plan.md** - Implement features with TDD, debugging, and collaboration
-  - Skill groups: `testing`, `debugging`, `collaboration`, `jujutsu-version-control`
-  - Primary: `test-driven-development` (always start with tests)
-  - Use for: Implementation with quality practices, handling bugs, code review
+- **execute-plan.md** - Execute development plans with test-driven development
+  - **Mandatory:** Use `test-driven-development` for ALL implementation (RED-GREEN-REFACTOR cycle)
+  - Additional skills used when needed:
+    - `systematic-debugging` - When encountering bugs (find root cause before fixing)
+    - `verification-before-completion` - Before claiming work is complete
+    - `requesting-code-review` - When ready for code review
+    - `jj-commit-workflow`, `jj-stacked-prs` - Managing Jujutsu commits and creating PRs
 
 ## How It Works
 

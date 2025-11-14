@@ -1,20 +1,18 @@
 ---
-description: Brainstorm and refine ideas into actionable development plans
-skill_groups:
-  - development-workflows
-  - jujutsu-version-control
-  - meta
+description: Brainstorm and refine rough ideas into actionable development plans with Jujutsu workflow
 ---
 
-# Brainstorming
+Use the `jj-development-workflow` skill for the complete end-to-end process:
 
-Use skills from the **development-workflows** group to refine rough ideas into clear, actionable plans:
+**When to use:** Starting development work, refining rough ideas into clear designs, need complete workflow from brainstorming through PR creation
 
-**Primary skill:** `jj-development-workflow` - Complete workflow from idea refinement through planning, implementation, code review, and PR creation
+**What it does:**
+1. Refines rough ideas into clear designs
+2. Creates planning commits (empty commits as your development roadmap)
+3. Implements using the commit stack as your task list
+4. Integrates code review after each task
+5. Creates stacked PRs from commits
 
-**Supporting skills from jujutsu-version-control:**
-- `jj-planning-commits` - Plan work with empty commits that describe each piece of work
-
-**When creating new skills, use meta group:**
-- `writing-skills` - Create new skills following best practices
-- `testing-skills-with-subagents` - Validate skill quality before deployment
+**Alternative: Creating new skills**
+- Use `writing-skills` when creating new spellbook skills
+- Use `testing-skills-with-subagents` to validate skills before deployment

@@ -1,6 +1,5 @@
 ---
 name: jj-pre-commit-hooks
-group: jujutsu-version-control
 description: Use when pre-commit hooks fail during jj git push - systematic protocol for fixing failures without bypassing safety mechanisms
 ---
 

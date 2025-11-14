@@ -1,18 +1,24 @@
 ---
-description: Plan development work by creating structured commit plans with Jujutsu
-skill_groups:
-  - jujutsu-version-control
-  - development-workflows
+description: Plan development work by creating empty commits as a meta todo list with Jujutsu
 ---
 
-# Planning Development Work
+Use the `jj-planning-commits` skill to plan work with empty commits:
 
-Use skills from the **jujutsu-version-control** group to create structured plans using commits:
+**When to use:** Starting new project work, breaking down features into tasks, need a concrete development roadmap
 
-**Primary skill:** `jj-planning-commits` - Plan tasks by creating empty commits with Jujutsu that describe each piece of work
+**How planning works:**
+1. Create empty commits (no file changes) that describe each piece of work
+2. Each commit message becomes your task description and acceptance criteria
+3. The commit stack becomes your development roadmap
+4. Reorganize commits as you refine the plan using `jj-commit-workflow`
 
-**Supporting skills from jujutsu-version-control:**
-- `jj-commit-workflow` - Manage commit stacks and reorganize work as you refine the plan
+**Empty commits as your todo list:**
+- Each empty commit = one unit of work
+- Commit messages contain task description + acceptance criteria
+- Use `jj new` to create planning commits
+- Use `jj describe` to refine task descriptions
+- Use `jj rebase` to reorganize the work sequence
 
-**For complete end-to-end workflow:**
-- `jj-development-workflow` (development-workflows) - Complete workflow from idea refinement through planning, implementation, code review, and PR creation
+**When to use related skills:**
+- `jj-commit-workflow` - Manage and reorganize commit stacks as you refine your plan
+- `jj-development-workflow` - For complete end-to-end workflow including planning + implementation

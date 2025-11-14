@@ -1,6 +1,5 @@
 ---
 name: jj-planning-commits
-group: jujutsu-version-control
 description: Use when starting new project work or feature development - plan tasks by creating empty commits with Jujutsu that describe each piece of work
 ---
 

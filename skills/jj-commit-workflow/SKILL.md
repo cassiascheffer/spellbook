@@ -1,6 +1,5 @@
 ---
 name: jj-commit-workflow
-group: jujutsu-version-control
 description: Use when managing commits, building commit stacks, reorganizing work, or working on specific commits in your Jujutsu repository
 ---
 
