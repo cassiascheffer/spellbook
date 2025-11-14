@@ -5,13 +5,18 @@ description: Use when creating GitHub pull request stacks or updating stacked PR
 
 # Jujutsu Stacked Pull Requests
 
+> **Part of the complete workflow:** This skill is used in Phase 5 (Pull Requests) of `spellbook:jj-development-workflow`. For the full end-to-end process from idea to PR, use that skill instead.
+
 ## When to Use This Skill
 
 Use this skill when:
+- You're in Phase 5 of the jj-development-workflow (creating PRs)
 - Creating multiple related PRs that build on each other
 - Need to break large features into reviewable chunks
 - Updating PRs in a stack after review feedback
 - Managing dependencies between pull requests
+
+**For complete workflow (idea → design → plan → implement → PR):** Use `spellbook:jj-development-workflow`
 
 ## What is a PR Stack?
 
@@ -301,6 +306,7 @@ jj git push --bookmark <next-pr> --force-with-lease
 
 ## Integration with Other Skills
 
+- **Complete workflow:** `spellbook:jj-development-workflow` orchestrates the full process
 - **Before stacked PRs:** Use `spellbook:jj-planning-commits` to plan the work
 - **During implementation:** Use `spellbook:jj-commit-workflow` to build commits
 - **When hooks fail:** Use `spellbook:jj-pre-commit-hooks` before pushing

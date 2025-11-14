@@ -19,13 +19,13 @@ Spellbook is a fork of Jesse Vincent's excellent [superpowers](https://github.co
 
 - **Testing Skills** - TDD, async testing, anti-patterns
 - **Debugging Skills** - Systematic debugging, root cause tracing, verification
-- **Collaboration Skills** - Brainstorming, planning, code review, parallel agents
-- **Development Skills** - Git worktrees, finishing branches, subagent workflows
+- **Collaboration Skills** - Code review, parallel agents, git worktrees
 - **Meta Skills** - Creating, testing, and sharing skills
 
 ### Spellbook Additions
 
-- **Jujutsu Workflows** - Planning commits, commit stacks, stacked PRs, pre-commit hooks
+- **Jujutsu Development Workflow** - Complete workflow from idea to PR, integrated with jj version control
+- **Jujutsu Version Control** - Planning commits, commit stacks, stacked PRs, pre-commit hooks
 - **Personal Standards** - Coding conventions via CLAUDE.md integration
 - **Custom Slash Commands** - Tailored workflows for personal development
 
@@ -91,7 +91,25 @@ git pull
 
 ## Quick Start
 
-### Using Jujutsu Skills
+### Using the Complete Workflow
+
+**Start development work (idea → design → plan → implement → PR):**
+```
+Use spellbook:jj-development-workflow skill
+```
+
+Or use any of the slash commands:
+```
+/spellbook:brainstorm
+/spellbook:write-plan
+/spellbook:execute-plan
+```
+
+All three slash commands now invoke the complete jj-development-workflow.
+
+### Using Individual Jujutsu Skills
+
+For specific phases of the workflow:
 
 **Plan work with empty commits:**
 ```
@@ -108,21 +126,9 @@ Use spellbook:jj-commit-workflow skill
 Use spellbook:jj-stacked-prs skill
 ```
 
-### Using Slash Commands
-
-**Brainstorm a design:**
+**Handle hook failures:**
 ```
-/spellbook:brainstorm
-```
-
-**Create an implementation plan:**
-```
-/spellbook:write-plan
-```
-
-**Execute the plan:**
-```
-/spellbook:execute-plan
+Use spellbook:jj-pre-commit-hooks skill
 ```
 
 ### Automatic Skill Activation
@@ -137,7 +143,10 @@ Skills activate automatically when relevant. For example:
 
 ### Skills Library
 
-**Jujutsu Workflows** (`skills/jj-*/`)
+**Development Workflows**
+- **jj-development-workflow** - Complete workflow from idea to PR integrated with Jujutsu
+
+**Jujutsu Version Control** (`skills/jj-*/`)
 - **jj-planning-commits** - Plan work with empty commits
 - **jj-commit-workflow** - Manage commit stacks and reorganize work
 - **jj-stacked-prs** - Create and update PR stacks
@@ -155,15 +164,11 @@ Skills activate automatically when relevant. For example:
 - **defense-in-depth** - Multiple validation layers
 
 **Collaboration** (`skills/collaboration/`)
-- **brainstorming** - Socratic design refinement
-- **writing-plans** - Detailed implementation plans
-- **executing-plans** - Batch execution with checkpoints
 - **dispatching-parallel-agents** - Concurrent subagent workflows
 - **requesting-code-review** - Pre-review checklist
 - **receiving-code-review** - Responding to feedback
 - **using-git-worktrees** - Parallel development branches
 - **finishing-a-development-branch** - Merge/PR decision workflow
-- **subagent-driven-development** - Fast iteration with quality gates
 
 **Meta** (`skills/meta/`)
 - **writing-skills** - Create new skills following best practices
@@ -173,11 +178,11 @@ Skills activate automatically when relevant. For example:
 
 ### Commands
 
-All commands are thin wrappers that activate the corresponding skill:
+All commands now redirect to the complete jj-development-workflow:
 
-- **brainstorm.md** - Activates the `brainstorming` skill
-- **write-plan.md** - Activates the `writing-plans` skill
-- **execute-plan.md** - Activates the `executing-plans` skill
+- **brainstorm.md** - Activates the `jj-development-workflow` skill
+- **write-plan.md** - Activates the `jj-development-workflow` skill
+- **execute-plan.md** - Activates the `jj-development-workflow` skill
 
 ## How It Works
 

@@ -5,14 +5,19 @@ description: Use when managing commits, building commit stacks, reorganizing wor
 
 # Jujutsu Commit Workflow
 
+> **Part of the complete workflow:** This skill is used in Phase 3 (Implementation) of `spellbook:jj-development-workflow`. For the full end-to-end process from idea to PR, use that skill instead.
+
 ## When to Use This Skill
 
 Use this skill when:
+- You're in Phase 3 of the jj-development-workflow (implementation)
 - Managing commits in your working copy
 - Building or reorganizing commit stacks
 - Switching between different commits to work on
 - Splitting, squashing, or reordering commits
 - Developing multiple features in parallel
+
+**For complete workflow (idea → design → plan → implement → PR):** Use `spellbook:jj-development-workflow`
 
 ## Core Concepts
 
@@ -246,6 +251,7 @@ jj bookmark delete <name>      # Delete bookmark
 
 ## Integration with Other Skills
 
+- **Complete workflow:** `spellbook:jj-development-workflow` orchestrates the full process
 - **Before commit workflow:** Use `spellbook:jj-planning-commits` to plan tasks
 - **For PRs:** Use `spellbook:jj-stacked-prs` to create GitHub pull requests
 - **When hooks fail:** Use `spellbook:jj-pre-commit-hooks` for fix protocol

@@ -5,13 +5,17 @@ description: Use when starting new project work or feature development - plan ta
 
 # Planning Projects with Jujutsu Empty Commits
 
+> **Part of the complete workflow:** This skill is used in Phase 2 (Planning) of `spellbook:jj-development-workflow`. For the full end-to-end process from idea to PR, use that skill instead.
+
 ## When to Use This Skill
 
 Use this skill when:
-- Starting a new feature or project
-- Need to break down complex work into tasks
-- Want to create a visible roadmap before coding
-- Planning work that will be implemented sequentially
+- You're in Phase 2 of the jj-development-workflow (planning)
+- Need to create planning commits from a validated design
+- Want to break down complex work into task commits
+- Have a clear design and need to create the commit roadmap
+
+**For complete workflow (idea → design → plan → implement → PR):** Use `spellbook:jj-development-workflow`
 
 ## Philosophy
 
@@ -171,6 +175,7 @@ When planning work that will become stacked PRs:
 
 ## Integration with Other Skills
 
+- **Complete workflow:** `spellbook:jj-development-workflow` orchestrates the full process
 - **After planning:** Use `spellbook:jj-commit-workflow` to implement tasks
 - **For PR creation:** Use `spellbook:jj-stacked-prs` to turn your stack into PRs
 - **When hooks fail:** Use `spellbook:jj-pre-commit-hooks` for the fix protocol

@@ -193,8 +193,9 @@ git worktree remove <worktree-path>
 ## Integration
 
 **Called by:**
-- **subagent-driven-development** (Step 7) - After all tasks complete
-- **executing-plans** (Step 5) - After all batches complete
+- **jj-development-workflow** - After implementation complete
+- Manual use when development branch is ready
 
 **Pairs with:**
 - **using-git-worktrees** - Cleans up worktree created by that skill
+- **jj-stacked-prs** - Creates PRs from finalized work

@@ -1,6 +1,6 @@
 ---
 name: using-spellbook
-description: Use when starting any conversation - establishes mandatory workflows for finding and using skills, including using Skill tool before announcing usage, following brainstorming before coding, and creating TodoWrite todos for checklists
+description: Use when starting any conversation - establishes mandatory workflows for finding and using skills, including using Skill tool before announcing usage, following jj-development-workflow for feature work, and creating TodoWrite todos for checklists
 ---
 
 <EXTREMELY-IMPORTANT>
@@ -27,7 +27,7 @@ Before responding to ANY user message, you MUST complete this checklist:
 
 ## Critical Rules
 
-1. **Follow mandatory workflows.** Brainstorming before coding. Check for relevant skills before ANY task.
+1. **Follow mandatory workflows.** Use jj-development-workflow for feature development. Check for relevant skills before ANY task.
 
 2. Execute skills with the Skill tool
 
@@ -66,7 +66,7 @@ Before using a skill, announce that you are using it.
 "I'm using [Skill Name] to [what you're doing]."
 
 **Examples:**
-- "I'm using the brainstorming skill to refine your idea into a design."
+- "I'm using the jj-development-workflow skill for the complete development process."
 - "I'm using the test-driven-development skill to implement this feature."
 
 **Why:** Transparency helps your human partner understand your process and catch errors early. It also confirms you actually read the skill.
@@ -83,7 +83,7 @@ The skill itself tells you which type it is.
 
 Your human partner's specific instructions describe WHAT to do, not HOW.
 
-"Add X", "Fix Y" = the goal, NOT permission to skip brainstorming, TDD, or RED-GREEN-REFACTOR.
+"Add X", "Fix Y" = the goal, NOT permission to skip jj-development-workflow, TDD, or RED-GREEN-REFACTOR.
 
 **Red flags:** "Instruction was specific" • "Seems simple" • "Workflow is overkill"
 

@@ -5,13 +5,18 @@ description: Use when pre-commit hooks fail during jj git push - systematic prot
 
 # Pre-Commit Hook Protocol for Jujutsu
 
+> **Part of the complete workflow:** This skill is used in Phase 6 (Hook Failures) of `spellbook:jj-development-workflow`. For the full end-to-end process from idea to PR, use that skill instead.
+
 ## When to Use This Skill
 
 Use this skill when:
+- You're in Phase 6 of the jj-development-workflow (handling hook failures)
 - `jj git push` fails due to pre-commit hooks
 - Linters, formatters, or tests fail during push
 - Any automated quality check blocks your push
 - You need to fix issues before pushing to remote
+
+**For complete workflow (idea → design → plan → implement → PR):** Use `spellbook:jj-development-workflow`
 
 ## What Are Pre-Commit Hooks?
 
@@ -296,6 +301,7 @@ jj git push --bookmark <name>
 
 ## Integration with Other Skills
 
+- **Complete workflow:** `spellbook:jj-development-workflow` orchestrates the full process
 - **Before pushing:** Verify work is complete and tests pass
 - **For verification:** Use `spellbook:verification-before-completion` before claiming done
 - **During commit workflow:** Use `spellbook:jj-commit-workflow` to organize work
