@@ -15,10 +15,10 @@ if [ -d "$legacy_skills_dir" ]; then
 fi
 
 # Read using-spellbook content
-using_superpowers_content=$(cat "${PLUGIN_ROOT}/skills/using-spellbook/SKILL.md" 2>&1 || echo "Error reading using-spellbook skill")
+using_spellbook_content=$(cat "${PLUGIN_ROOT}/skills/using-spellbook/SKILL.md" 2>&1 || echo "Error reading using-spellbook skill")
 
 # Escape outputs for JSON
-using_superpowers_escaped=$(echo "$using_superpowers_content" | sed 's/\\/\\\\/g' | sed 's/"/\\"/g' | awk '{printf "%s\\n", $0}')
+using_spellbook_escaped=$(echo "$using_spellbook_content" | sed 's/\\/\\\\/g' | sed 's/"/\\"/g' | awk '{printf "%s\\n", $0}')
 warning_escaped=$(echo "$warning_message" | sed 's/\\/\\\\/g' | sed 's/"/\\"/g' | awk '{printf "%s\\n", $0}')
 
 # Output context injection as JSON
@@ -26,7 +26,7 @@ cat <<EOF
 {
   "hookSpecificOutput": {
     "hookEventName": "SessionStart",
-    "additionalContext": "<EXTREMELY_IMPORTANT>\nYou have spellbook.\n\n**Below is the full content of your 'spellbook:using-spellbook' skill - your introduction to using skills. For all other skills, use the 'Skill' tool:**\n\n${using_superpowers_escaped}\n\n${warning_escaped}\n</EXTREMELY_IMPORTANT>"
+    "additionalContext": "<EXTREMELY_IMPORTANT>\nYou have spellbook.\n\n**Below is the full content of your 'spellbook:using-spellbook' skill - your introduction to using skills. For all other skills, use the 'Skill' tool:**\n\n${using_spellbook_escaped}\n\n${warning_escaped}\n</EXTREMELY_IMPORTANT>"
   }
 }
 EOF
