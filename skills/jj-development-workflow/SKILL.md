@@ -10,6 +10,7 @@ description: Use when starting any development work with Jujutsu - complete work
 Complete development workflow integrated with Jujutsu version control. Takes you from rough ideas through design, planning, implementation, code review, and pull request creation.
 
 **This skill orchestrates the complete development cycle:**
+
 1. **Refine** - Turn rough ideas into clear designs
 2. **Plan** - Create task commits with acceptance criteria
 3. **Implement** - Execute tasks using commit stack
@@ -21,6 +22,7 @@ Complete development workflow integrated with Jujutsu version control. Takes you
 ## When to Use This Skill
 
 Use this skill when:
+
 - Starting new feature development
 - Have a rough idea that needs refinement
 - Need to plan and execute complex work
@@ -28,6 +30,7 @@ Use this skill when:
 - Working with Jujutsu version control
 
 **Don't use for:**
+
 - Quick mechanical fixes (just make the change)
 - Work already planned elsewhere
 - Projects not using Jujutsu (use git-specific workflows)
@@ -39,6 +42,7 @@ Use this skill when:
 **Goal:** Turn rough concept into clear, fully-formed design.
 
 **Process:**
+
 1. Check current project state (files, docs, recent commits)
 2. Ask questions one at a time to understand:
    - Purpose and goals
@@ -50,6 +54,7 @@ Use this skill when:
 6. Validate each section before continuing
 
 **Key principles:**
+
 - One question at a time (don't overwhelm)
 - Multiple choice preferred when possible
 - YAGNI ruthlessly - remove unnecessary features
@@ -57,6 +62,7 @@ Use this skill when:
 - Incremental validation throughout
 
 **Output:** Design document covering:
+
 - Architecture and approach
 - Components and data flow
 - Error handling strategy
@@ -65,6 +71,7 @@ Use this skill when:
 **Save to:** `docs/plans/YYYY-MM-DD-<topic>-design.md`
 
 **Tools to use:**
+
 - Read existing files for context
 - Ask questions with AskUserQuestion
 - Write design document when validated
@@ -76,12 +83,14 @@ Use this skill when:
 **Required sub-skill:** `spellbook:jj-planning-commits`
 
 **Process:**
+
 1. Start from main branch
 2. Create empty commit for each task
 3. Write clear commit message with acceptance criteria
 4. Build commit stack representing full plan
 
 **Template for each planning commit:**
+
 ```
 [Action]: [What needs to be done]
 
@@ -95,12 +104,14 @@ Acceptance: [How to verify this task is complete]
 ```
 
 **Task granularity:**
+
 - Each task should be 5-15 minutes of work
 - Independently implementable and testable
 - Follows TDD: write test → verify fail → implement → verify pass → commit
 - Clear acceptance criteria
 
 **Commands:**
+
 ```bash
 jj new main
 jj describe -m "[Task description with acceptance criteria]"
@@ -113,6 +124,7 @@ jj commit
 ```
 
 **View your plan:**
+
 ```bash
 jj log                    # See the full task stack
 ```
@@ -120,6 +132,7 @@ jj log                    # See the full task stack
 **Save detailed plan to:** `docs/plans/YYYY-MM-DD-<feature-name>.md`
 
 **Plan document should include:**
+
 - Header with goal, architecture, tech stack
 - Each task with:
   - Files to create/modify (exact paths)
@@ -144,12 +157,12 @@ Work through tasks in order:
 jj log                         # Review the plan
 jj edit <first-task-id>       # Start implementing first task
 # Follow TDD: write test, verify fail, implement, verify pass
-jj new                         # Move to next task
 jj edit <second-task-id>      # Implement second task
 # Continue through stack
 ```
 
 **When to use:**
+
 - Tasks are sequential and dependent
 - Want direct control of implementation
 - Small number of tasks (< 5)
@@ -159,12 +172,14 @@ jj edit <second-task-id>      # Implement second task
 Dispatch fresh subagent for each task with code review:
 
 **When to use:**
+
 - Tasks are mostly independent
 - Want automated code review between tasks
 - Larger number of tasks (5+)
 - Want to catch issues early
 
 **Process:**
+
 1. Create TodoWrite with all tasks
 2. For each task:
    - Dispatch implementation subagent
@@ -178,6 +193,7 @@ Dispatch fresh subagent for each task with code review:
 **See:** `spellbook:subagent-driven-development` for detailed protocol
 
 **Implementation principles:**
+
 - Follow TDD for every task (test → fail → implement → pass)
 - Use `spellbook:test-driven-development`
 - Keep commits focused on single task
@@ -185,6 +201,7 @@ Dispatch fresh subagent for each task with code review:
 - Run verifications as specified in plan
 
 **For discovered issues:**
+
 - Don't fix unrelated problems immediately
 - Create new planning commit for the issue
 - Rebase it into correct position
@@ -221,6 +238,7 @@ jj log -r 'mine()'
 **Required sub-skill:** `spellbook:jj-stacked-prs`
 
 **Process:**
+
 1. Group related commits into logical PRs
 2. Create bookmarks for each PR
 3. Push bookmarks to GitHub
@@ -228,6 +246,7 @@ jj log -r 'mine()'
 5. Mark all PRs as draft
 
 **For single PR:**
+
 ```bash
 jj bookmark create my-feature
 jj git push --bookmark my-feature
@@ -235,6 +254,7 @@ gh pr create --draft --title "..." --body "..."
 ```
 
 **For stacked PRs:**
+
 ```bash
 # Create bookmarks for each PR in stack
 jj bookmark create feature-part-1 -r <first-commit-id>
@@ -250,13 +270,16 @@ gh pr create --draft --base feature-part-1 --head feature-part-2 --title "..." -
 ```
 
 **PR description template:**
+
 ```markdown
 ## Summary
+
 - [Bullet point 1]
 - [Bullet point 2]
 - [Bullet point 3]
 
 ## Test plan
+
 - [ ] [Test step 1]
 - [ ] [Test step 2]
 - [ ] [Test step 3]
@@ -275,6 +298,7 @@ gh pr create --draft --base feature-part-1 --head feature-part-2 --title "..." -
 **Never bypass hooks.** Always fix the issues.
 
 **5-step protocol:**
+
 1. Identify which commit failed
 2. Use `jj edit <commit-id>` to check out failing commit
 3. Fix the issues
@@ -288,12 +312,14 @@ gh pr create --draft --base feature-part-1 --head feature-part-2 --title "..." -
 ### Jujutsu Integration
 
 **Commits are your roadmap:**
+
 - Empty commits = planned tasks
 - Filled commits = completed tasks
 - `jj log` = progress visualization
 - `jj edit` = context for current work
 
 **Non-destructive reorganization:**
+
 - Use `jj rebase` to reorder tasks
 - Use `jj squash` to combine related work
 - Use `jj split` to break tasks down
@@ -302,6 +328,7 @@ gh pr create --draft --base feature-part-1 --head feature-part-2 --title "..." -
 ### Quality Gates
 
 **At each phase:**
+
 - Design: Validate sections before proceeding
 - Planning: Clear acceptance criteria required
 - Implementation: TDD for every task
@@ -311,6 +338,7 @@ gh pr create --draft --base feature-part-1 --head feature-part-2 --title "..." -
 ### DRY, YAGNI, TDD
 
 **Throughout workflow:**
+
 - **DRY** - Don't repeat yourself in code or plans
 - **YAGNI** - You aren't gonna need it (ruthlessly cut features)
 - **TDD** - Test-driven development for every task
@@ -320,32 +348,38 @@ gh pr create --draft --base feature-part-1 --head feature-part-2 --title "..." -
 This master workflow orchestrates these specialized skills:
 
 **Planning:** `spellbook:jj-planning-commits`
+
 - Create empty commits for tasks
 - Template for planning commits
 - Managing commit stacks
 
 **Implementation:** `spellbook:jj-commit-workflow`
+
 - Sequential task execution
 - Managing working copy
 - Reorganizing commits
 - Handling discovered issues
 
 **Execution:** `spellbook:subagent-driven-development` (optional)
+
 - Fresh subagent per task
 - Automated code review between tasks
 - Fast iteration with quality gates
 
 **Code Review:** `spellbook:requesting-code-review`
+
 - Validate before PRs
 - Catch issues early
 - Ensure requirements met
 
 **Pull Requests:** `spellbook:jj-stacked-prs`
+
 - Create stacked PRs
 - Manage dependencies
 - Update after review
 
 **Hook Failures:** `spellbook:jj-pre-commit-hooks`
+
 - Fix protocol when hooks fail
 - Never bypass safety mechanisms
 
@@ -455,11 +489,13 @@ When you find unrelated problems:
 
 1. **Don't fix immediately**
 2. **Create planning commit:**
+
    ```bash
    jj new
    jj describe -m "Fix discovered issue: [description]"
    jj commit
    ```
+
 3. **Rebase to correct position:** `jj rebase -s <issue-commit> -d <where-it-should-go>`
 4. **Continue current task:** `jj edit <current-task-id>`
 
@@ -476,6 +512,7 @@ When you realize the plan needs adjustment:
 ## Why This Works
 
 **For AI agents:**
+
 - Clear context at every step (design → plan → task)
 - `jj edit` tells me exactly what to work on
 - Visible progress with `jj log`
@@ -483,6 +520,7 @@ When you realize the plan needs adjustment:
 - Automated quality gates catch issues early
 
 **For humans:**
+
 - Transparent roadmap before coding starts
 - Reviewable at every phase (design, plan, implementation)
 - Flexible - easy to adjust as understanding improves
